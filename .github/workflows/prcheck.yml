@@ -11,3 +11,5 @@ jobs:
       - name: view contents
         run: |
           gh pr view
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
