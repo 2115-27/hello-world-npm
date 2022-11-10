@@ -12,6 +12,6 @@ jobs:
       - name: view contents
         run: |
           gh pr checkout 24
-          gh pr view 24
+          gh pr view 24 -c
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
