@@ -11,6 +11,6 @@ jobs:
       - uses: actions/checkout@v3 
       - name: view contents
         run: |
-          gh pr view 27 -c
+          gh pr view 27 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
