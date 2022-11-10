@@ -8,6 +8,7 @@ jobs:
   viewpr:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3 
       - name: view contents
         run: |
           gh pr view
