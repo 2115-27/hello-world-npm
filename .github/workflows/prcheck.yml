@@ -14,7 +14,7 @@ jobs:
         run: |
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
           gh pr view 33 >> comments.txt 
-          task=$(grep -o "AB#" comments.txt)
+          task=$(grep "AB#" comments.txt)
           echo $task is task
           task1=$(echo $task | awk -F'[[:blank:]]' '{print $1}')
           echo $task1 is task1
