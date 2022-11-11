@@ -13,7 +13,7 @@ jobs:
       - name: view contents
         run: |
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          gh pr view $PR_NUMBER >> comments.txt 
+          gh pr view 33 >> comments.txt 
           task=$(grep -w "AB#" comments.txt)
           echo $task 
           if [[ $task = ^AB#.*[0-9]$ ]];then
