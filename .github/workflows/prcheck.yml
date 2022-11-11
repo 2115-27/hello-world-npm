@@ -15,7 +15,8 @@ jobs:
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
           gh pr view 33 >> comments.txt 
           task=$(grep -o "AB#" comments.txt)
-          task1=$(echo $task | awk -F' ' '{print $1}')
+          echo $task is task
+          task1=$(echo $task | awk -F'[[:blank:]]' '{print $1}')
           echo $task1 is task1
           if [[ $task1 =~ ^AB#.*[0-9]$ ]];then
             echo valid number
