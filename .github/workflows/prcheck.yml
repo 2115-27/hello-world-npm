@@ -16,7 +16,7 @@ jobs:
           gh pr view 33 >> comments.txt 
           task=$(grep -w "AB#" comments.txt)
           echo $task 
-          if [[ $task = ^AB#.*[0-9]$ ]];then
+          if [[ $task =~ ^AB#.*[0-9]$ ]];then
             echo valid number
             exit 0
           else
