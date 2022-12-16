@@ -9,6 +9,7 @@ jobs:
   viewpr:
     runs-on: ubuntu-latest
     steps:
+      - name: echo "$GITHUB_REF_NAME is the branchname"
       - uses: actions/checkout@v3 
       - name: view contents
         run: |
