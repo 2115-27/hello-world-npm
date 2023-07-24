@@ -25,6 +25,7 @@ jobs:
        - id: eventname
          run: |
            event=${{ inputs.event }}
+           echo $event
            echo "event=$event" >> $GITHUB_OUTPUT
        
        - name: Conditional step
