@@ -21,9 +21,9 @@ jobs:
     steps:
        - run: echo ${{ github.run_number }}
        
-       - name: step should not run
+       - name: event
          
-         run: echo $GITHUB_EVENT_NAME is event
+         run: echo "Triggered by ${{ github.event_name }} event."
        
 #       - name: Checkout code
 #         uses: actions/checkout@v3
