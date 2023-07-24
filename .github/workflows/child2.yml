@@ -11,6 +11,9 @@ on:
       Brand:
         required: true
         type: string
+      event:
+        required: true
+        type: string
     secrets:
       REPO:
         required: true
