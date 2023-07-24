@@ -46,6 +46,7 @@ jobs:
             PRNumber=$(gh pr view ${{ github.event.pull_request.head.ref }} --json number --jq '.number')
             echo $PRNumber is PRNumber
             event=call
+            echo "event=$event" >> $GITHUB_OUTPUT
           env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
