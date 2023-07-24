@@ -31,9 +31,9 @@ jobs:
            echo "event=$event" >> $GITHUB_OUTPUT
        
        - name: Conditional step
-         if: ${{ steps.eventname.ouputs.event == '' }}
+         if: ${{ inputs.event == '' }}
          run: |
-           echo ${{ steps.eventname.ouputs.event }} is the event
+           echo ${{ inputs.event }} is the event
            echo "Triggered by dispacth event."
        
 #       - name: Checkout code
