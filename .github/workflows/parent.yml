@@ -30,6 +30,8 @@ jobs:
      
      TestJob: 
       runs-on: ubuntu-latest
+      outputs:
+        event: ${{ steps.Branchname.outputs.event }}
       steps:
 #         - run: mkdir master/
         
@@ -38,9 +40,12 @@ jobs:
 #           with:
 #             path: master
             
-        - run: |
+        - name: set event name
+          id: Branchname
+          run: |
             PRNumber=$(gh pr view ${{ github.event.pull_request.head.ref }} --json number --jq '.number')
             echo $PRNumber is PRNumber
+            event=call
           env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
@@ -124,6 +129,7 @@ jobs:
        uses: ./.github/workflows/child2.yml
        with:
          Brand: ${{ inputs.Brand }}
+         event: ${{ needs.TestJob.outputs.event }}
        secrets:
          REPO: ${{ secrets.REPO }}
          
