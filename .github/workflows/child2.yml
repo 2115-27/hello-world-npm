@@ -33,7 +33,7 @@ jobs:
        - name: Conditional step
          if: ${{ inputs.event == '' }}
          run: |
-           echo ${{ inputs.event }} is the event
+           
            echo "Triggered by dispacth event."
        
 #       - name: Checkout code
