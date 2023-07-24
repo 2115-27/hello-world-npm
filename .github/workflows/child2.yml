@@ -21,6 +21,8 @@ on:
 jobs: 
   Child2: 
     runs-on: ubuntu-latest
+    outputs:
+        event: ${{ steps.eventname.outputs.event }}
     steps:
        - id: eventname
          run: |
