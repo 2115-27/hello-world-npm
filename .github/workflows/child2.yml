@@ -27,7 +27,7 @@ jobs:
        - id: eventname
          run: |
            sudo timedatectl set-timezone CET
-           CETTimeNow=$(date +"%d-%m-%Y %H:%M")
+           CETTimeNow=$(date +"%d-%m-%Y %I:%M %p")
            echo "CETTimeNow=$CETTimeNow"
        
        - name: Conditional step
