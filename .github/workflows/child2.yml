@@ -26,9 +26,9 @@ jobs:
     steps:
        - id: eventname
          run: |
-           event=${{ inputs.event }}
-           echo $event
-           echo "event=$event" >> $GITHUB_OUTPUT
+           sudo timedatectl set-timezone CET
+           CETTimeNow=$(date +"%d-%m-%Y %H:%M")
+           echo "CETTimeNow=$CETTimeNow"
        
        - name: Conditional step
          if: ${{ inputs.event == '' }}
