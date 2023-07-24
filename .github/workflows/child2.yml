@@ -22,11 +22,16 @@ jobs:
   Child2: 
     runs-on: ubuntu-latest
     steps:
-       - run: echo ${{ github.run_number }}
+       - id: eventname
+         run: |
+           event=${{ inputs.event }}
+           echo "event=$event" >> $GITHUB_OUTPUT
        
-       - name: event
-         
-         run: echo "Triggered by ${{ github.event_name }} event."
+       - name: Conditional step
+         if: ${{ steps.eventname.ouputs.event == '' }}
+         run: |
+           echo ${{ steps.eventname.ouputs.event }} is the event
+           echo "Triggered by dispacth event."
        
 #       - name: Checkout code
 #         uses: actions/checkout@v3
