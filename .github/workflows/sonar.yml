@@ -19,4 +19,4 @@ jobs:
               -Dsonar.organization=2115-27
               -Dsonar.projectKey=2115-27_hello-world-npm
               -Dsonar.branch.name=${{ github.ref_name }}
-              -Dsonar.branch.target=hotfix-23.9.9
+              
