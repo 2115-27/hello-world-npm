@@ -51,10 +51,10 @@ jobs:
         ad_num1="${ad_num#?}"
         echo $ad_num1
         echo $ad_num1 is AzureDevOps User Story
-        if [[ $ad_num1 =~ ^AB#.*[0-9]$ ]];then
+        # if [[ $ad_num1 =~ ^AB#.*[0-9]$ ]];then
           echo Valid UserStory.. 
-          TaskID=$(echo "$ad_num1" | grep -oE 'AB#([0-9]+)' | grep -oE '[0-9]+')
-          taskURL="https://agco-dcx.visualstudio.com/ONE%20Digital/_workitems/edit/$TaskID"
+          TaskID="1234"
+          taskURL="https://abc.visualstudio.com/DCEF/_workitems/edit/$TaskID"
           echo $TaskID is TaskID
           echo $taskURL is taskURL
           echo -------------------------Checking if html file exists in dev branch------------------------------
@@ -79,7 +79,7 @@ jobs:
             echo -e "PR - <a href=\"$PRLink\">$PRNumber</a> ${PRtitle}, ADO Ref - <a href=\"$taskURL\">$TaskID</a>, Authored by ${PRAuthor} , Merged on $current_date\n" >> ${{ github.workspace }}/release-note.html
             
           fi  
-        fi
+        # fi
         
         cat ${{ github.workspace }}/release-note.html
                
