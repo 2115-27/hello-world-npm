@@ -7,11 +7,11 @@ jobs:
 
           runs-on: ubuntu-latest
           steps:
-          - name: Checkout Repository
-            uses: actions/checkout@v3
+          # - name: Checkout Repository
+          #   uses: actions/checkout@v3
 
           - run: |
-              gh release view 11.19.9
+              gh release view 1.9.9
             env:
               GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
