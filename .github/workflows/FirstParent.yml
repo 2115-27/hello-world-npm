@@ -21,3 +21,19 @@ jobs:
          REPO: ${{ secrets.REPO }}
          LOGS_SECRET: ${{ secrets.LOGS_SECRET }}
          
+     Log:
+      runs-on: ubuntu-latest
+      needs: ParentJob
+      outputs:
+         event: ${{ steps.eventname.outputs.event }}
+      steps:
+       - uses: actions/checkout@v3
+       - id: eventname
+         run: |
+           echo ${{ github.workflow }}
+           
+           jobs_url="https://api.github.com/repos/2115-27/hello-world-npm/actions/runs/${{ github.run_id }}/jobs"
+           curl -s -H "Authorization: token ${{ secrets.LOGS_SECRET }}" $jobs_url
+           curl -s -H "Authorization: token ${{ secrets.LOGS_SECRET }}" $jobs_url | jq -r '.jobs[] | select(.name == "'"$job"'" ) | .id'
+       
+         
