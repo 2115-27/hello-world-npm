@@ -25,6 +25,7 @@ jobs:
         event: ${{ steps.eventname.outputs.event }}
     steps:
        - id: eventname
+         if: ${{ github.workflow == Parentworkflow }}
          run: |
            sudo timedatectl set-timezone CET
            CETTimeNow=$(date +"%d-%m-%Y %I:%M %p")
