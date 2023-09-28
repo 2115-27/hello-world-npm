@@ -40,15 +40,15 @@ jobs:
 #           with:
 #             path: master
             
-        - name: set event name
-          id: Branchname
-          run: |
-            PRNumber=$(gh pr view ${{ github.event.pull_request.head.ref }} --json number --jq '.number')
-            echo $PRNumber is PRNumber
-            event=call
-            echo "event=$event" >> $GITHUB_OUTPUT
-          env:
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # - name: set event name
+        #   id: Branchname
+        #   run: |
+        #     PRNumber=$(gh pr view ${{ github.event.pull_request.head.ref }} --json number --jq '.number')
+        #     echo $PRNumber is PRNumber
+        #     event=call
+        #     echo "event=$event" >> $GITHUB_OUTPUT
+        #   env:
+        #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
 #         - run: |
 #             ls -lrta    
