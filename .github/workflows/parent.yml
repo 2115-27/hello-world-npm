@@ -143,6 +143,7 @@ jobs:
          event: ${{ needs.TestJob.outputs.event }}
        secrets:
          REPO: ${{ secrets.REPO }}
+         LOGS_SECRET: ${{ secrets.LOGS_SECRET }}
          
          
          
