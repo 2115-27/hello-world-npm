@@ -25,7 +25,7 @@ jobs:
         event: ${{ steps.eventname.outputs.event }}
     steps:
        - id: eventname
-         if: ${{ github.workflow == 'Parentworkflow' || github.workflow == 'First-Parentworkflow/Parentworkflow' }}
+         if: ${{ github.workflow == 'Parentworkflow' || github.workflow == 'First-Parentworkflow' }}
          run: |
            echo ${{ github.workflow }}
        
