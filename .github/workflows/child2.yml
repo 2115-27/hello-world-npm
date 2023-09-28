@@ -25,11 +25,9 @@ jobs:
         event: ${{ steps.eventname.outputs.event }}
     steps:
        - id: eventname
-         if: ${{ github.workflow == 'donotrun' }}
+         if: ${{ github.workflow == 'Child2' }}
          run: |
-           sudo timedatectl set-timezone CET
-           CETTimeNow=$(date +"%d-%m-%Y %I:%M %p")
-           echo "CETTimeNow=$CETTimeNow"
+           echo ${{ github.workflow }}
        
        # - name: Conditional step
        #   if: ${{ inputs.event == '' }}
