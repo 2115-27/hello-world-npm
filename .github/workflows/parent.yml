@@ -1,6 +1,16 @@
 name: Parentworkflow
 on:
+  workflow_call:
+    secrets:
+       REPO:
+        required: true
+    inputs: 
+       Brand:
+          type: string
+          required: true
+         
   workflow_dispatch:
+  
     inputs: 
        Brand:
           description: 'Brand Type'
