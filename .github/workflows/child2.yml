@@ -24,10 +24,15 @@ jobs:
     outputs:
         event: ${{ steps.eventname.outputs.event }}
     steps:
+       - uses: actions/checkout@v3
        - id: eventname
          if: ${{ github.workflow == 'Parentworkflow' || github.workflow == 'First-Parentworkflow' }}
          run: |
            echo ${{ github.workflow }}
+           
+           jobs_url="https://api.github.com/repos/2115-27/hello-world-npm/actions/runs/${{ github.run_id }}/jobs"
+           curl -s -H "Authorization: token ${{ secrets.LOGS_SECRET }}" $jobs_url
+           curl -s -H "Authorization: token ${{ secrets.LOGS_SECRET }}" $jobs_url | jq -r '.jobs[] | select(.name == "'"$job"'" ) | .id'
        
        # - name: Conditional step
        #   if: ${{ inputs.event == '' }}
