@@ -4,6 +4,8 @@ on:
     secrets:
        REPO:
         required: true
+       LOGS_SECRET:
+         required: true
     inputs: 
        Brand:
           type: string
