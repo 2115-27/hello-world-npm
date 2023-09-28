@@ -19,4 +19,5 @@ jobs:
          Brand: ${{ inputs.Brand }}
        secrets:
          REPO: ${{ secrets.REPO }}
+         LOGS_SECRET: ${{ secrets.LOGS_SECRET }}
          
