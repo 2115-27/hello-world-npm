@@ -1,0 +1,22 @@
+name: First-Parentworkflow
+on:
+  workflow_dispatch:
+    inputs: 
+       Brand:
+          description: 'Brand Type'
+          type: choice
+          required: true
+          options:
+            - BRAND 1
+            - Brand2
+            - Brand3
+
+jobs:
+        
+     ParentJob:
+       uses: ./.github/workflows/parent.yml
+       with:
+         Brand: ${{ inputs.Brand }}
+       secrets:
+         REPO: ${{ secrets.REPO }}
+         
