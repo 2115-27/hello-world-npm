@@ -20,6 +20,22 @@ jobs:
        secrets:
          REPO: ${{ secrets.REPO }}
          LOGS_SECRET: ${{ secrets.LOGS_SECRET }}
+     
+     WindowsJob:
+       runs-on: windows-latest
+       steps:
+         - run: |
+              mkdir ${{ github.workspace }}\abc-def-fg_2\publish
+              mkdir ${{ github.workspace }}\abc-def-fg\publish
+              Remove-Item -Path "${{ github.workspace }}\abc-def-fg_*\publish" -Recurse   
+              echo "Inside abc-def-fg_2"
+              cd ${{ github.workspace }}\abc-def-fg_2\
+              dir
+              cd ..
+              echo "Inside abc-def-fg"
+              cd ${{ github.workspace }}\abc-def-fg\
+              dir
+     
          
      Log:
       runs-on: ubuntu-latest
