@@ -30,6 +30,13 @@ jobs:
        - run: |
            zip -r "Workspace-${{ github.workflow }}-${{ github.run_number }}.zip" "./"
            ls -lrta
+       - name: Upload workspace as artifact
+         if: always()
+         uses: actions/upload-artifact@v3
+         with:
+             name: Workspace of ${{ github.workflow }} RunNumber-${{ github.run_number }}
+             path: Workspace-${{ github.workflow }}-${{ github.run_number }}.zip
+             retention-days: 7    
        - id: eventname
          if: ${{ github.workflow == 'Parentworkflow' || github.workflow == 'First-Parentworkflow' }}
          run: |
