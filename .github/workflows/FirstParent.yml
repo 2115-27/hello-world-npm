@@ -24,6 +24,7 @@ jobs:
      WindowsJob:
        runs-on: windows-latest
        steps:
+         - uses: actions/setup-dotnet@latest
          - run: |
               mkdir ${{ github.workspace }}\abc-def-fg_2\publish
               mkdir ${{ github.workspace }}\abc-def-fg\publish
