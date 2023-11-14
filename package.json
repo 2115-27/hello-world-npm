@@ -4,6 +4,8 @@
   "description": "A simple npm package to demonstrate GitHub Package Registry",
   "main": "index.js",
   "scripts": {
+    "ng": "ng",
+    "build": "ng build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
