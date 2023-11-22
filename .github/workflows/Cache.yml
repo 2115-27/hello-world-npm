@@ -25,7 +25,7 @@ jobs:
           gh workflow run buildno.yml --ref master -f sample=key-${{ github.run_number }}  
 
         env:
-            GH_TOKEN: ${{ secrets.CACHE }}
+            GH_TOKEN: ${{ secrets.ADMIN }}
           
             
             
