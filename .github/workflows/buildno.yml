@@ -23,7 +23,7 @@ jobs:
           
       - run: |
           ls -lrta
-          cat sample.txt/
+          cat ./sample.txt
       
   #     - id: version
   #       run: |
