@@ -24,6 +24,7 @@ jobs:
       - run: |
           ls -lrta
           cat ./sample.txt
+          sleep 30
       
   #     - id: version
   #       run: |
