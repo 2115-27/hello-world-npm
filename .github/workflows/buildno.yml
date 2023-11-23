@@ -21,7 +21,9 @@ jobs:
           path: ./sample.txt
           key: ${{ inputs.sample }} 
           
-      - run: cat sample.txt/
+      - run: |
+          ls -lrta
+          cat sample.txt/
       
   #     - id: version
   #       run: |
