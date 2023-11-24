@@ -2,7 +2,9 @@ name: Cache_action
 
 on:
   workflow_dispatch:
-
+permissions:
+  repository-projects: write
+  actions: write
 jobs:        
   Cache_Action:
     runs-on: ubuntu-latest
@@ -22,12 +24,11 @@ jobs:
 
       - uses: actions/checkout@v3
       - run: |
-          VAR="$(unbuffer gh workflow run buildno.yml --ref master -f sample=key-${{ github.run_number }})"
-          echo $VAR is VAR
-          # gh workflow run buildno.yml --ref master -f sample=key-${{ github.run_number }}  
+
+          gh workflow run buildno.yml --ref master -f sample=key-${{ github.run_number }}  
 
         env:
-            GH_TOKEN: ${{ secrets.CACHE }}
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - run: |
          echo "This step runs after buildno.yml execution is completed"
