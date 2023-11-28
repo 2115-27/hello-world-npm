@@ -79,7 +79,7 @@ jobs:
      
      ChildJob:
        needs: TestJob
-       uses: ./.github/workflows/child2.yml
+       uses: ./.github/workflows/${{ inputs.Brand }}.yml
        with:
          Brand: ${{ inputs.Brand }}
        secrets:
