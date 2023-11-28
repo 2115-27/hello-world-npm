@@ -12,7 +12,7 @@ on:
             - Brand2
             - Brand3
 
-
+run-name: abc : def
 jobs:
      
      TestJob: 
@@ -78,13 +78,13 @@ jobs:
 #           env:
 #             GH_TOKEN: ${{ secrets.REPO }}
      
-     ChildJob:
-       needs: TestJob
-       uses: ./.github/workflows/${{ inputs.Brand }}.yml
-       with:
-         Brand: ${{ inputs.Brand }}
-       secrets:
-         REPO: ${{ secrets.REPO }}
+     # ChildJob:
+     #   needs: TestJob
+     #   uses: ./.github/workflows/${{ inputs.Brand }}.yml
+     #   with:
+     #     Brand: ${{ inputs.Brand }}
+     #   secrets:
+     #     REPO: ${{ secrets.REPO }}
          
          
          
