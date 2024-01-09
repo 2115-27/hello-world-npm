@@ -12,7 +12,7 @@ on:
             - Brand2
             - Brand3
 
-run-name: abc : def
+
 jobs:
      
      TestJob: 
