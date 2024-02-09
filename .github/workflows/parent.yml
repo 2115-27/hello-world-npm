@@ -20,21 +20,14 @@ jobs:
       steps:
         - uses: actions/checkout@v3
         - run: |
-            #response=$(curl -s -o /dev/null -w "%{http_code}" "https://api.github.com/repos/2115-27/hello-world-npm/contents/commits.md?ref=master")
-            echo $response is the response
-          
-          env:
-             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            ls -lrta
              
 
      
      ChildJob:
        needs: TestJob
-       uses: ./.github/workflows/${{ inputs.Brand }}.yml
-       with:
-         Brand: ${{ inputs.Brand }}
-       secrets:
-         REPO: ${{ secrets.REPO }}
+       uses: ./.github/workflows/child.yml
+      
          
          
          
