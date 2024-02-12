@@ -16,10 +16,19 @@ jobs:
       - uses: actions/checkout@v3 
       - run: |
  
-          mkdir abc | cd abc | echo test > file.1.js
+          mkdir abc 
+          cd abc 
+          echo test > file.1.js
           ls
-          mkdir def | cd def | echo test2 > file.2.js
-          ls 
+          echo "_________________________________________"
+          mkdir def 
+          cd def 
+          echo test2 > file.2.js
+          ls
+          echo "____________Outside_______________-"
+          cd ..
+          cd ..
+          ls
       - run: |
          find abc -name "file.*.js"
          
