@@ -30,7 +30,7 @@ jobs:
           cd ..
           ls
       - run: |
-         find abc -name "file.*.js"
+         find abc -maxdepth 1 -name "file.*.js"
          
       # - name: check_US_Integration
       #   run: |
