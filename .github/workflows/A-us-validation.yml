@@ -15,12 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3 
       - run: |
-          echo test > file.1.js
-          ls 
-          mkdir abc | cd abc | echo test2 > file.1.js
+ 
+          mkdir abc | cd abc | echo test > file.1.js
           ls
+          mkdir def | cd def | echo test2 > file.2.js
+          ls 
       - run: |
-         find abc -name "file.1.js"
+         find abc -name "file.*.js"
+         
       # - name: check_US_Integration
       #   run: |
       #     PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
