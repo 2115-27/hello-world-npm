@@ -37,9 +37,15 @@ jobs:
       #     cd ..
       #     ls
       - run: |
-         find folder1/folder2/abc -maxdepth 1 -name "file.*.js"
-         echo "_______________without maxdepth_____________"
-         find folder1/folder2/abc  -name "file.*.js"
+         if [ -d "folder1/folder2/abc" ]; then
+          echo "Directory exists"
+          find folder1/folder2/abc -maxdepth 1 -name "file.*.js"
+         else
+          echo "Directory does not exist"
+         fi
+
+         # echo "_______________without maxdepth_____________"
+         # find folder1/folder2/abc  -name "file.*.js"
          
       # - name: check_US_Integration
       #   run: |
