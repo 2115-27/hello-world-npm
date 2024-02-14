@@ -17,25 +17,25 @@ jobs:
       - run: |
           echo $var1 is var1
       - uses: actions/checkout@v3 
-      # - run: |
+      - run: |
  
-      #     mkdir folder1
-      #     cd folder1
-      #     mkdir folder2
-      #     cd folder2
-      #     mkdir abc 
-      #     cd abc 
-      #     echo test > file.1.js
-      #     ls
-      #     echo "_________________________________________"
-      #     mkdir def 
-      #     cd def 
-      #     echo test2 > file.2.js
-      #     ls
-      #     echo "____________Outside_______________-"
-      #     cd ..
-      #     cd ..
-      #     ls
+          mkdir folder1
+          cd folder1
+          mkdir folder2
+          cd folder2
+          mkdir abc 
+          cd abc 
+          echo test > file.1.js
+          ls
+          echo "_________________________________________"
+          mkdir def 
+          cd def 
+          echo test2 > file.2.js
+          ls
+          echo "____________Outside_______________-"
+          cd ..
+          cd ..
+          ls
       - run: |
          if [ -d "folder1/folder2/abc" ]; then
           echo "Directory exists"
