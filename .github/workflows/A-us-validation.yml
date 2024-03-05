@@ -1,6 +1,13 @@
 name: UserStory_Validation
 on:
   workflow_dispatch:
+    inputs:
+      Fortify:
+          required: true
+          type: choice
+          options: 
+            - Yes
+            - No
   pull_request:
     branches:
       - master
@@ -18,12 +25,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         with:
-          tag_name: v1.4.4
-          release_name: TestRelease
+          tag_name: v1.4.5
+          release_name: cpqui-ReleaseName
           body: |
-            Changes in this Release
-            - First Change
-            - Second Change
+            Fortify check - ${{ inputs.Fortify }}
             
       # - run: |
       #     echo $var1 is var1
