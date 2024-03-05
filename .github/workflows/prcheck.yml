@@ -19,7 +19,7 @@ jobs:
          echo ${{ github.event.pull_request.changed_files }}
 
       - name: Conditional step
-        if: ${{ github.event.pull_request.changed_files == 2 && contains(github.event.pull_request.changed_files, 'src/') && contains(github.event.pull_request.changed_files, 'etc/') }}
+        if: ${{ contains(github.event.pull_request.changed_files, 'src/') && contains(github.event.pull_request.changed_files, 'etc/') }}
         run: |
            echo both paths are changed
            
