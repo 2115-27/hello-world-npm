@@ -6,8 +6,3 @@ set smtp-auth-user=githubtestinfy@gmail.com
 set smtp-auth-password=Infy@123456789
 set from=githubtestinfy@gmail.com
 set realname="Github test"
-
-
-
-
-
