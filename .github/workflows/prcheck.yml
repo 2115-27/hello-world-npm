@@ -17,6 +17,7 @@ jobs:
       - run: |
          echo test
          echo ${{ github.event.pull_request.changed_files }}
+         echo ${{ github.event.pull_request.files }} are the files
 
       - name: Conditional step
         if: ${{ contains(github.event.pull_request.changed_files, 'src/') && contains(github.event.pull_request.changed_files, 'etc/') }}
