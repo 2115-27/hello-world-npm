@@ -14,56 +14,67 @@ jobs:
   check_US_Integration:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo $var1 is var1
-      - uses: actions/checkout@v3 
-      - run: |
+      - uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+            
+      # - run: |
+      #     echo $var1 is var1
+      # - uses: actions/checkout@v3 
+      # - run: |
  
-          mkdir folder1
-          cd folder1
-          mkdir folder2
-          cd folder2
-          mkdir abc 
-          cd abc 
-          echo test > file.1.js
-          ls
-          echo "_________________________________________"
-          mkdir def 
-          cd def 
-          echo test2 > file.2.js
-          ls
-          echo "____________Outside_______________-"
-          cd ..
-          cd ..
-          ls
-      - run: |
-         if [ -d "folder1/folder2/abc" ]; then
-          echo "Directory exists"
-          find folder1/folder2/abc -maxdepth 1 -name "file.*.js"
-         else
-          echo "Directory does not exist"
-         fi
+      #     mkdir folder1
+      #     cd folder1
+      #     mkdir folder2
+      #     cd folder2
+      #     mkdir abc 
+      #     cd abc 
+      #     echo test > file.1.js
+      #     ls
+      #     echo "_________________________________________"
+      #     mkdir def 
+      #     cd def 
+      #     echo test2 > file.2.js
+      #     ls
+      #     echo "____________Outside_______________-"
+      #     cd ..
+      #     cd ..
+      #     ls
+      # - run: |
+      #    if [ -d "folder1/folder2/abc" ]; then
+      #     echo "Directory exists"
+      #     find folder1/folder2/abc -maxdepth 1 -name "file.*.js"
+      #    else
+      #     echo "Directory does not exist"
+      #    fi
 
-         # echo "_______________without maxdepth_____________"
-         # find folder1/folder2/abc  -name "file.*.js"
+      #    # echo "_______________without maxdepth_____________"
+      #    # find folder1/folder2/abc  -name "file.*.js"
          
-      # - name: check_US_Integration
-      #   run: |
-      #     PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-      #     gh pr view $PR_NUMBER >> comments.txt 
-      #     comment=$(grep "AB#" comments.txt)
-      #     echo $comment is comment
-      #     ad_num=$(echo $comment | awk -F']' '{print $1}')
-      #     echo $ad_num
-      #     ad_num1="${ad_num#?}"
-      #     echo $ad_num1
-      #     echo $ad_num1 is AzureDevOps User Story
-      #     if [[ $ad_num1 =~ ^AB#.*[0-9]$ ]];then
-      #       echo Valid UserStory.. 
-      #       exit 0
-      #     else
-      #       echo Invalid UserStory..Please append UserStory number after AB#...Exiting!!
-      #       exit 1
-      #     fi  
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # # - name: check_US_Integration
+      # #   run: |
+      # #     PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+      # #     gh pr view $PR_NUMBER >> comments.txt 
+      # #     comment=$(grep "AB#" comments.txt)
+      # #     echo $comment is comment
+      # #     ad_num=$(echo $comment | awk -F']' '{print $1}')
+      # #     echo $ad_num
+      # #     ad_num1="${ad_num#?}"
+      # #     echo $ad_num1
+      # #     echo $ad_num1 is AzureDevOps User Story
+      # #     if [[ $ad_num1 =~ ^AB#.*[0-9]$ ]];then
+      # #       echo Valid UserStory.. 
+      # #       exit 0
+      # #     else
+      # #       echo Invalid UserStory..Please append UserStory number after AB#...Exiting!!
+      # #       exit 1
+      # #     fi  
+      # #   env:
+      # #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
