@@ -19,6 +19,10 @@ jobs:
          echo ${{ github.event.pull_request.changed_files }}
          echo ${{ github.event.pull_request.files }} are the files
 
+      - run: |
+          FILES=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/pulls/95/files" | jq -r '.[].filename')
+          echo $FILES
+          
       - name: Conditional step
         if: ${{ contains(github.event.pull_request.changed_files, 'src/') && contains(github.event.pull_request.changed_files, 'etc/') }}
         run: |
