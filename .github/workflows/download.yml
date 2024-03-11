@@ -20,7 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - run: |
+    - name: Test
+      continue-on-error: true
+      run: |
+      
        cd FailDirectory/
        
     - name: Checkout Sourcecode
