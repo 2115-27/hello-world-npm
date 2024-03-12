@@ -19,3 +19,10 @@ jobs:
     - uses: actions/labeler@v4
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
+
+  PRTest_branch_Protection:
+    if: ${{ github.actor == 'noUser' }}
+    needs: triage
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo testing  
