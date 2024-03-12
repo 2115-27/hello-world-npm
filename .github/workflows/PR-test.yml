@@ -8,8 +8,6 @@ on:
     paths:
       - 'etc/mail/**/*'
       - '.github/**/*'
-
-
 jobs:
   PRTest_branch_Protection:
   
