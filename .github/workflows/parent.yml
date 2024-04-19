@@ -1,19 +1,36 @@
+
 name: Parentworkflow
 on:
+  workflow_call:
+    inputs:
+      Brand: 
+        type: string
   workflow_dispatch:
-    
+    inputs: 
+       Brand:
+          description: 'Brand Type'
+          type: choice
+          required: true
+          options:
+            - BRAND 1
+            - Brand2
+            - Brand3
+       secondInput:
+         type: string
+
+
 jobs:
      
      TestJob: 
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
-        - run: |
-            response=$(curl -s -o /dev/null -w "%{http_code}" "https://api.github.com/repos/2115-27/hello-world-npm/contents/commits.md?ref=master")
-            echo $response is the response
+        # - run: |
+        #     response=$(curl -s -o /dev/null -w "%{http_code}" "https://api.github.com/repos/2115-27/hello-world-npm/contents/commits.md?ref=master")
+        #     echo $response is the response
           
-          env:
-             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #   env:
+        #      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
              
 #         - run: |
 #             echo ${{ github.run_number }}
@@ -69,7 +86,7 @@ jobs:
      
      # ChildJob:
      #   needs: TestJob
-     #   uses: ./.github/workflows/${{ inputs.Brand }}.yml
+     #   uses: ./.github/workflows/child2.yml
      #   with:
      #     Brand: ${{ inputs.Brand }}
      #   secrets:
