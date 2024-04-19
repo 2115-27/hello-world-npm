@@ -1,4 +1,3 @@
-
 name: A-Parentworkflow
 on:
   workflow_dispatch:
@@ -14,12 +13,6 @@ on:
 
 
 jobs:
-     
-     # TestJob: 
-     #  runs-on: ubuntu-latest
-     #  steps:
-     #    - uses: actions/checkout@v3
-
      
      ChildJob:
        uses: ./.github/workflows/parent.yml
